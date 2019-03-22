@@ -9,7 +9,6 @@
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--spring容器的 配置-->
     <context:component-scan base-package="com.mmall" annotation-config="true"/>
 
     <bean id="propertyConfigurer"
@@ -24,7 +23,7 @@
         <property name="fileEncoding" value="utf-8"/>
     </bean>
 
-    <!--spring容器：数据库连接池配置 dbcp-->
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driverClassName}"/>
         <property name="url" value="${db.url}"/>
@@ -58,10 +57,8 @@
         <property name="validationQuery" value="SELECT 1 FROM dual"/>
     </bean>
 
-    <!--spring容器：sqlSession-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!--读取所有的sql 实现-->
         <property name="mapperLocations" value="classpath*:mappers/*Mapper.xml"></property>
 
         <!-- 分页插件 -->
@@ -79,7 +76,6 @@
 
     </bean>
 
-    <!--spring容器：mybatis扫描-->
     <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mmall.dao"/>
     </bean>
