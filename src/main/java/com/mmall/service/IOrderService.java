@@ -32,4 +32,11 @@ public interface IOrderService {
 
     ServerResponse aliCallback(Map<String,String> params);
 
+
+    //backend
+    ServerResponse<PageInfo> manageList(int pageNum,int pageSize);
+    ServerResponse<OrderVo> manageDetail(Long orderNo);
+    ServerResponse<PageInfo> manageSearch(Long orderNo,int pageNum,int pageSize);
+    ServerResponse<String> manageSendGoods(Long orderNo);
+
 }
