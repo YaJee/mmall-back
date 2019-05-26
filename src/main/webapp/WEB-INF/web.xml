@@ -6,7 +6,7 @@
 
   <display-name>Archetype Created Web Application</display-name>
   <!--spring mvc 配置 -->
-  <!--过滤器：用于转码，将求出数据转码 -->
+  <!--过滤器：用于转码，将请求数据转码 -->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
